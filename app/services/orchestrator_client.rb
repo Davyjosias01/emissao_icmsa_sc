@@ -4,16 +4,18 @@ class OrchestratorClient
     @token = token
   end
 
-  def get_obligations
+  def get_obligations( obligation: )
+    puts("get_obligations")
     res = RestClient.get(
       "#{@base_url}/integration/v1/companies/index", { 
         params: { 
-          obligation: "emissao_dare", 
+          obligation: obligation, 
           date_start: "2025-09-01", 
           date_end: "2025-10-01",
           integrated_at: "false",
           obligation_finished: "false"
-        }
+          fields: "cnpj,dominio_code"
+        },
         authorization: @token,
         accept: :json 
       }

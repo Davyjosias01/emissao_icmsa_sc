@@ -1,0 +1,25 @@
+<h1>Agente RPA - Disparar automação</h1>
+
+<% if notice %>
+    <p style="color: green;"><%= notice %></p>
+<% end %>
+
+<% if alert %>
+    <p style="color: red;"><%= alert %></p>
+<% end %>
+
+<%= form_with url: automations_path, method: :post, local: true do |f| %>
+    <div style="margin-bottom: 12px;">
+        <label for="obligation">Processo/Obrigação</label><br>
+        <%= select_tag :obligation,
+                options_for_select(@obligations, selected: params[:obligation]),
+                include_blank: "Selecione..."
+        %>
+
+    <%= f.submit  "Buscar demandas e iniciar", data: { turbo: false }%>
+<% end %>
+
+<p style="opacity: 0.7;">
+    Este botão apenas consulta as demandas no seu sistema para a obrigação escolhida.
+    O disparo do robô pode vir na proxima etapa
+</p>
