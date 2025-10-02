@@ -2,7 +2,7 @@ class AutomationsController < ApplicationController
   def create
     obligation = params.require(:obligation) #garante que o parâmetro obligation seja existente
   
-    client = HTTP::BackofficeClient.new
+    client = Http::BackofficeClient.new
     demands = client.demands_by_obligation(obligation: obligation)
 
     count = Array(demands).size
