@@ -1,4 +1,4 @@
 ORCH_CONFIG = {
-  base_url:   ENV['BASE_URL'],
-  token:  ENV['TOKEN'],
+  BASE_URL:   ENV['BASE_URL'],
+  TOKEN:  ENV['TOKEN'],
 }.freeze
