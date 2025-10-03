@@ -22,9 +22,6 @@ class Http::BackofficeClient
           date_start: date_start || Date.today.beginning_of_month.to_s, 
           date_end: date_end || Date.today.beginning_of_month.advance(months: 1).to_s,
           integrated_at: integrated_at || "false",
-          date_start: "2025-09-01", 
-          date_end: "2025-10-01",
-
           obligation_finished: "true",
           fields: "cnpj,dominio_code"
         }.compact

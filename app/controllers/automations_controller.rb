@@ -6,7 +6,7 @@ class AutomationsController < ApplicationController
     demands = client.demands_by_obligation( 
       obligation: obligation, 
       date_start: params[:date_start],
-      date_end: params[:date_end]  
+      date_end: params[:date_end],
       integrated_at: params[:integrated_at]
     )
 
