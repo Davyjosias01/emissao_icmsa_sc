@@ -7,6 +7,7 @@ class AutomationsController < ApplicationController
       obligation: obligation, 
       date_start: params[:date_start],
       date_end: params[:date_end]  
+      integrated_at: params[:integrated_at]
     )
 
     count = Array(demands).size

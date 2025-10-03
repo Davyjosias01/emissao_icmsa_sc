@@ -10,6 +10,16 @@
 
 <%= form_with url: automations_path, method: :post, local: true do |f| %>
 
+
+    <div style="margin-bottom: 12px;">
+        <label for="obligation">Processo/Obrigação</label><br>
+        <%= 
+            select_tag :obligation,
+            options_for_select(@obligations, selected: params[:obligation]),
+            include_blank: "Selecione..."
+        %>
+    </div>
+
     <div>
         <%= f.label :date_start %> <br>
         <%= f.date_field :date_start %>
@@ -20,12 +30,11 @@
         <%= f.date_field :date_end %>
     </div>
 
-    <div style="margin-bottom: 12px;">
-        <label for="obligation">Processo/Obrigação</label><br>
-        <%= select_tag :obligation,
-                options_for_select(@obligations, selected: params[:obligation]),
-                include_blank: "Selecione..."
-        %>
+    <div>
+        <%= f.label :integrated, "integrated" %>
+        <%= check_box_tag :integrated_at, "true", "false" %>
+    </div>
+            
 
     <%= f.submit  "Buscar demandas e iniciar", data: { turbo: false }%>
 <% end %>
