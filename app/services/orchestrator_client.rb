@@ -13,7 +13,7 @@ class OrchestratorClient
           date_start: "2025-09-01", 
           date_end: "2025-10-01",
           integrated_at: "false",
-          obligation_finished: "false"
+          obligation_finished: "false",
           fields: "cnpj,dominio_code"
         },
         authorization: @token,

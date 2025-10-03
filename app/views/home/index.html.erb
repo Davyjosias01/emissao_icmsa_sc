@@ -9,6 +9,8 @@
 <% end %>
 
 <%= form_with url: automations_path, method: :post, local: true do |f| %>
+
+    
     <div style="margin-bottom: 12px;">
         <label for="obligation">Processo/Obrigação</label><br>
         <%= select_tag :obligation,
