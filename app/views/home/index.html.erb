@@ -10,7 +10,11 @@
 
 <%= form_with url: automations_path, method: :post, local: true do |f| %>
 
-    
+    <div>
+        <%= f.label :integrated, "integrated" %>
+        <%= check_box_tag :integrated_at, "true", "false" %>
+    </div>
+
     <div style="margin-bottom: 12px;">
         <label for="obligation">Processo/Obrigação</label><br>
         <%= select_tag :obligation,

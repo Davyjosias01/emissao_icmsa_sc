@@ -10,14 +10,14 @@ class Http::BackofficeClient
     }
   end
 
-  def demands_by_obligation( obligation: )
+  def demands_by_obligation( obligation:, integrated_at: )
     res = RestClient.get(
       "#{@base_url}/integration/v1/companies/index", { 
         params: { 
           obligation: obligation, 
           date_start: "2025-09-01", 
           date_end: "2025-10-01",
-          integrated_at: "false",
+          integrated_at: integrated_at || "false",
           obligation_finished: "true",
           fields: "cnpj,dominio_code"
         },

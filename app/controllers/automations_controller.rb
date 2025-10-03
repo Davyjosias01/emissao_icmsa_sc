@@ -3,7 +3,10 @@ class AutomationsController < ApplicationController
     obligation = params.require(:obligation) #garante que o parâmetro obligation seja existente
     
     client = Http::BackofficeClient.new
-    demands = client.demands_by_obligation( obligation: obligation )
+    demands = client.demands_by_obligation( 
+      obligation: obligation, 
+      integrated_at: params[:integrated_at]
+    )
 
     count = Array(demands).size
     redirect_to root_path, notice: "Demandas encontradas para '#{obligation}': #{count}"
