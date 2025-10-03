@@ -1,10 +1,12 @@
 class AutomationsController < ApplicationController
   def create
-    obligation = params.require(:obligation) #garante que o parâmetro obligation seja existente
-    
+    obligation = params.require(:obligation)
+
     client = Http::BackofficeClient.new
     demands = client.demands_by_obligation( 
       obligation: obligation, 
+      date_start: params[:date_start],
+      date_end: params[:date_end]  
       integrated_at: params[:integrated_at]
     )
 
